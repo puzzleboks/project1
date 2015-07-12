@@ -1,0 +1,26 @@
+.player1 {
+  float: left;
+}
+
+.player2 {
+  clear: right;
+}
+
+h1 {
+  margin: 0 0;
+
+}
+/*.boob {
+  clear: left;
+}*/
+
+main div {
+  float: left;
+}
+
+img {
+  width: 200px;
+}
+.playBtn {
+  clear: both;
+}
