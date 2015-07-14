@@ -3,15 +3,18 @@
 //when 'play' button is clicked, shuffle deck
 //change 'play' button to 'start over'
 var imgUrlArray = ["images/bolt.png", "images/bolt.png", "images/star.png", "images/star.png", "images/circle.png", "images/circle.png", "images/square.png", "images/square.png", "images/triangle.png", "images/triangle.png",];
-var card1 = {
-  url:"images/bolt.png",
-  index: 0,
-  flip: 0
-}
+// var card1 = {
+//   url:"images/bolt.png",
+//   index: 0,
+//   flip: 0
+// }
 var card = document.getElementById('board').getElementsByTagName("img");
 var board = document.querySelector("#board");
 var playBtn = document.querySelector(".playBtn");
-//var turn = "none";
+var score1 = document.querySelector(".score1");
+var score2 = document.querySelector(".score2");
+var score1Num = 0;
+var score2Num = 0;
 var player = 1;
 var state = 0;
 var game = 0;
@@ -20,6 +23,7 @@ var matchArray = [];
 var cardArray = [];
 var choicePic = "";
 var choiceNum = 0;
+
 //var state = 0;
 var click = 0;
 
@@ -80,9 +84,24 @@ function startGame(){
                 e.target.style.visibility = 'hidden';
                 card[choiceNum].style.visibility = 'hidden';
                 boardState[targetId] = 2;
-                console.log ("working");
+                //update score
+                if (player === 1) {
+                  score1Num = score1Num + 2;
+                  score1.innerHTML = score1Num;
+
+                }else{
+                  score2Num = score2Num + 2;
+                  score2.innerHTML = score2Num;
+                }
+              }else{
+                player = 2;
+                e.target.src = "images/cardBack.png";
+                card[choiceNum].src = "images/cardBack.png";
+                boardState[targetId] = 0;
               }
+              state = 0;
               clearTimeout(myDelay);
+              return;
             }
 
           }
