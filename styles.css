@@ -7,14 +7,15 @@ body {
   color: white;
 }
 
-.player1 {
+
+/*.player1 {
   float: left;
   margin: 0px 50px;
 }
 
 .player2 {
   clear: right;
-}
+}*/
 
 h1 {
   margin: 0px 0px;
