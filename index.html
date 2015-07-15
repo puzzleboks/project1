@@ -8,16 +8,17 @@
 </head>
 <body>
   <div class="container">
-    <header>
-      <table>
-        <tr class="players">
-          <td><h2>Player 1:</h2></td>
-          <td><h1 class="score1">0</h1></td>
-          <td><h2>Player 2:</h2></td>
-          <td><h1 class="score2">0</h1></td>
-        </tr>
-      </table>
-    </header>
+    <table>
+      <tr class="players">
+        <td>Player 1:</td>
+        <td class="score1">0</td>
+        <td>Player 2:</td>
+        <td class="score2">0</td>
+      </tr>
+      <tr>
+        <td><div class="playBtn"><h2 id="playTxt">Play</h2></div></td>
+      </tr>
+    </table>
     <main id=board>
       <table>
         <tr>
@@ -36,13 +37,6 @@
         </tr>
       </table>
     </main>
-    <footer>
-      <div class="play/reset">
-        <div class="playBtn">
-          <h2 id="playTxt">Play</h2>
-        </div>
-      </div>
-    </footer>
 </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
   <script src="memory.js"></script>

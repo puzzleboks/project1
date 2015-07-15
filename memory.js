@@ -57,22 +57,21 @@ function resetGame() {
 }
 //click play button to shuffle deck and start game
 playBtn.addEventListener("click", function(){
-  var shuffled = shuffle(imgUrlArray);
   if (game === 0){
-    console.log(shuffled);
-    game = 1;
-    document.querySelector("#playTxt").innerHTML = "Start Over";
-    score1.style.color = 'green';
-    score2.style.color = 'white';
     startGame ();
   }else{
-    game = 0;
     resetGame();
   }
 })
 //reveal
 //when a card is clicked, reveal the card that equals that position in the array (replace placeholder?)
 function startGame(){
+  var shuffled = shuffle(imgUrlArray);
+  console.log(shuffled);
+  game = 1;
+  document.querySelector("#playTxt").innerHTML = "Start Over";
+  score1.style.color = 'green';
+  score2.style.color = 'white';
   board.addEventListener("click", revealCards, false);
   function revealCards(e) {
     if (game === 0) {
@@ -84,7 +83,7 @@ function startGame(){
         if (state === 0) {
           //player = 1;
           e.target.src = imgUrlArray[targetId];
-          game = 1;
+          //game = 1;
           state = 1;
           boardState[targetId] = 1;
           choicePic = e.target.src;
@@ -102,10 +101,6 @@ function startGame(){
                 card[choiceNum].style.visibility = 'hidden';
                 boardState[targetId] = 2;
                 boardState[choiceNum] = 2;
-                //update player score on match
-              }else{
-                //update player score on no match
-                //player only changes on no match
                 if (player === 1) {
                   score1Num = score1Num + 2;
                   score1.innerHTML = score1Num;
@@ -123,9 +118,16 @@ function startGame(){
                   }
                   resetGame();
                 }
-                player = 2;
-                score2.style.color = "green";
-                score1.style.color = "white";
+              }else{
+                if (player === 1) {
+                  player = 2;
+                  score2.style.color = "green";
+                  score1.style.color = "white";
+                }else{
+                  player = 1;
+                  score1.style.color = "green";
+                  score2.style.color = "white";
+                }
                 e.target.src = "images/cardBack.png";
                 card[choiceNum].src = "images/cardBack.png";
                 boardState[targetId] = 0;
@@ -140,10 +142,10 @@ function startGame(){
           }
         }
       }
-      e.stopPropagation();
       //if cards match, remove them from the board and update score
       //if cards don't match, hide them again (replace with placeholder)
     }
+    e.stopPropagation();
   }
 
 }
