@@ -1,5 +1,6 @@
 # Project 1: Memory Game
 
+[http://puzzleboks.github.io/project1/]
 
 **User Stories:**
 
@@ -32,3 +33,5 @@ In turn each player chooses two cards and turns them face up. If they are of the
 * If I was going to do the project again I think I might use Ksenia's solution of using objects. Each card would be an object that has several properties like url, name, index, etc.
 
 * I got very confused trying to follow all my many conditions, which I tried to handle with various "states".
+
+* Did not effectively set up my task tracking. Hoping to do that on next project.
