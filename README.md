@@ -1,6 +1,6 @@
 # Project 1: Memory Game
 
-(http://puzzleboks.github.io/project1/)
+http://puzzleboks.github.io/project1/
 
 **User Stories:**
 
