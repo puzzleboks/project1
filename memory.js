@@ -19,13 +19,8 @@ var player = 1;
 var state = 0;
 var game = 0;
 var boardState = [0,0,0,0,0,0,0,0,0,0];//0=back,1=face,2=removed
-var matchArray = [];
-var cardArray = [];
 var choicePic = "";
 var choiceNum = 0;
-
-//var state = 0;
-//var click = 0;
 
 function shuffle(array) {
   var m = array.length, t, i;
@@ -48,20 +43,17 @@ function resetGame() {
   state = 0;
   game = 0;
   boardState = [0,0,0,0,0,0,0,0,0,0];//0=back,1=face,2=removed
-  matchArray = [];
-  cardArray = [];
   choicePic = "";
   choiceNum = 0;
   document.querySelector("#playTxt").innerHTML = "Play";
   score1.innerHTML = score1Num;
   score2.innerHTML = score2Num;
-  card[0].src
+  score1.style.color = 'white';
+  score2.style.color = 'white';
   for (var i=0; i<imgUrlArray.length; i++) {
     card[i].src = "images/cardBack.png";
     card[i].style.visibility = "visible";
   }
-  //change all cards back to cardBack
-  //shuffle deck
 }
 //click play button to shuffle deck and start game
 playBtn.addEventListener("click", function(){
@@ -71,12 +63,11 @@ playBtn.addEventListener("click", function(){
     game = 1;
     document.querySelector("#playTxt").innerHTML = "Start Over";
     score1.style.color = 'green';
+    score2.style.color = 'white';
     startGame ();
   }else{
     game = 0;
     resetGame();
-    //console.log("start over");
-    //return;
   }
 })
 //reveal
@@ -91,6 +82,7 @@ function startGame(){
         var targetId = parseInt(e.target.className);
 
         if (state === 0) {
+          //player = 1;
           e.target.src = imgUrlArray[targetId];
           game = 1;
           state = 1;
@@ -99,9 +91,9 @@ function startGame(){
           choiceNum = targetId;
           //console.log(boardState);
         }else if (state === 1) {
+          //player = 1;!player;
           if (boardState[targetId] === 0) {
             e.target.src = imgUrlArray[targetId];
-            //boardState[targetId] = 2;
             //delay
             var myDelay = setTimeout(function () {myTimer()}, 1000);
             function myTimer() {
@@ -110,7 +102,10 @@ function startGame(){
                 card[choiceNum].style.visibility = 'hidden';
                 boardState[targetId] = 2;
                 boardState[choiceNum] = 2;
-                //update score
+                //update player score on match
+              }else{
+                //update player score on no match
+                //player only changes on no match
                 if (player === 1) {
                   score1Num = score1Num + 2;
                   score1.innerHTML = score1Num;
@@ -128,9 +123,9 @@ function startGame(){
                   }
                   resetGame();
                 }
-              }else{
                 player = 2;
                 score2.style.color = "green";
+                score1.style.color = "white";
                 e.target.src = "images/cardBack.png";
                 card[choiceNum].src = "images/cardBack.png";
                 boardState[targetId] = 0;
@@ -152,8 +147,6 @@ function startGame(){
   }
 
 }
-
-
 //win
 //when all the cards are removed from the board, announce the winner (player with the most points)
 //change 'play' button to 'play again'
