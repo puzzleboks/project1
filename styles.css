@@ -3,6 +3,7 @@
 }*/
 
 body {
+  font-family: Arial;
   background-color: black;
   color: white;
 }
@@ -12,38 +13,56 @@ table {
   margin-right:auto;
 }
 
-h2 {
-  /*text-align: center;*/
-}
-/*.player1 {
-  float: left;
-  margin: 0px 50px;
+.player1 {
+  font-size: 2em;
+  padding-right: 4;
 }
 
 .player2 {
-  clear: right;
-}*/
-tr {
-  text-align: center;
+  font-size: 2em;
+  padding-right: 4;
 }
 
-h1 {
-  /*margin: 0px 0px;*/
-
+.score1 {
+  font-size: 2em;
+  padding-left: 0;
+  padding-right: 100px;
 }
-/*.boob {
-  clear: left;
-}*/
 
-/*main div {
-  float: left;
-  margin: 20px 20px;
-}*/
+.score2 {
+  font-size: 2em;
+  padding: 0 0;
+}
+
+th, td {
+    padding: 7px;
+}
 
 img {
   width: 175px;
 }
+
 .playBtn {
-  /*clear: both;
-  cursor: pointer;*/
+  height: 29px;
+  width: 114px;
+  /*margin-left:auto;
+  margin-right:auto;
+  margin-bottom: 20px;*/
+  margin: 10px auto 20px auto;
+  text-align: center;
+  background: #d93434;
+  background-image: -webkit-linear-gradient(top, #d93434, #b82c2c);
+  background-image: -moz-linear-gradient(top, #d93434, #b82c2c);
+  background-image: -ms-linear-gradient(top, #d93434, #b82c2c);
+  background-image: -o-linear-gradient(top, #d93434, #b82c2c);
+  background-image: linear-gradient(to bottom, #d93434, #b82c2c);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 25px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  cursor:pointer;
 }
