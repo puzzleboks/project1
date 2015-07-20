@@ -1,5 +1,6 @@
 // memory game
 
+// mms: well organized. A joy to read.  I didn't share much, because, well, ya' done good.
 
 // global variables
 
@@ -66,11 +67,13 @@ function startGame(){
   var shuffled = shuffle(imgUrlArray);
   console.log(shuffled);
   game = 1;
+// mms: recommed you set css classes, which control the style, instead of setting the style directly.
   score1.style.color = 'red';
   playBtn.innerHTML = "Start Over";
   board.addEventListener("click", revealCards, false);
 }
 
+// mms: recommend you share your source here (as well as readme).
 // shuffle: randomize card array (within the array)
 function shuffle(array) {
   var m = array.length, t, i;
